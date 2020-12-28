@@ -1109,11 +1109,17 @@ public:
 		DARTHVADER,
 		YODA,
 		COUNTDOOKU,
-		OWK
+		OWK,
+		GREVIOUS,
+		AHSOKA,
+		DARTHMAUL,
+		KYLOREN,
+		REY,
+		QUIGON
 	};
 
-	VOICE_OPTIONS selected_voice = COUNTDOOKU;
-	char* current_voice_path = "countdooku";
+	VOICE_OPTIONS selected_voice = GREVIOUS;
+	char* current_voice_path = "grevious";
 
 	float scrollfactor = 2;
 
@@ -1194,12 +1200,43 @@ public:
 			PlayMenuSound("/voiceovers/obiwan/self.wav");
 			break;
 		case OWK:
+			selected_voice = GREVIOUS;
+			current_voice_path = "grevious";
+			PlayMenuSound("/voiceovers/grevious/self.wav");
+			break;
+		case GREVIOUS:
+			selected_voice = AHSOKA;
+			current_voice_path = "ahsoka";
+			PlayMenuSound("/voiceovers/ahsoka/self.wav");
+			break;
+		case AHSOKA:
+			selected_voice = DARTHMAUL;
+			current_voice_path = "darthmaul";
+			PlayMenuSound("/voiceovers/darthmaul/self.wav");
+			break;
+		case DARTHMAUL:
+			selected_voice = KYLOREN;
+			current_voice_path = "kyloren";
+			PlayMenuSound("/voiceovers/kyloren/self.wav");
+			break;
+		case KYLOREN:
+			selected_voice = REY;
+			current_voice_path = "rey";
+			PlayMenuSound("/voiceovers/rey/self.wav");
+			break;
+		case REY:
+			selected_voice = QUIGON;
+			current_voice_path = "quigon";
+			PlayMenuSound("/voiceovers/quigon/self.wav");
+			break;
+		case QUIGON:
 			selected_voice = DARTHVADER;
 			current_voice_path = "darthvader";
 			PlayMenuSound("/voiceovers/darthvader/self.wav");
 			break;
 		}
 	}
+	//
 
 	//Cycle to the next menu voice. This needs a major upgrade to read the folder name and check the self.wav for annoucements. Needs a
 	//smarted enum that doesn't suck with a switch case.
@@ -1207,9 +1244,9 @@ public:
 		switch (selected_voice) {
 			STDOUT.println(selected_voice);
 		case DARTHVADER:
-			selected_voice = OWK;
-			current_voice_path = "obiwan";
-			PlayMenuSound("/voiceovers/obiwan/self.wav");
+			selected_voice = QUIGON;
+			current_voice_path = "quigon";
+			PlayMenuSound("/voiceovers/quigon/self.wav");
 			break;
 		case YODA:
 			selected_voice = DARTHVADER;
@@ -1225,6 +1262,36 @@ public:
 			selected_voice = COUNTDOOKU;
 			current_voice_path = "countdooku";
 			PlayMenuSound("/voiceovers/countdooku/self.wav");
+			break;
+		case GREVIOUS:
+			selected_voice = OWK;
+			current_voice_path = "owk";
+			PlayMenuSound("/voiceovers/owk/self.wav");
+			break;
+		case AHSOKA:
+			selected_voice = GREVIOUS;
+			current_voice_path = "grevious";
+			PlayMenuSound("/voiceovers/grevious/self.wav");
+			break;
+		case DARTHMAUL:
+			selected_voice = AHSOKA;
+			current_voice_path = "ahsoka";
+			PlayMenuSound("/voiceovers/ahsoka/self.wav");
+			break;
+		case KYLOREN:
+			selected_voice = DARTHMAUL;
+			current_voice_path = "darthmaul";
+			PlayMenuSound("/voiceovers/darthmaul/self.wav");
+			break;
+		case REY:
+			selected_voice = KYLOREN;
+			current_voice_path = "kyloren";
+			PlayMenuSound("/voiceovers/kyloren/self.wav");
+			break;
+		case QUIGON:
+			selected_voice = REY;
+			current_voice_path = "rey";
+			PlayMenuSound("/voiceovers/rey/self.wav");
 			break;
 		}
 	}
